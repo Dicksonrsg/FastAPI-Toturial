@@ -33,5 +33,10 @@ async def root():
 async def fetch_users():
     return db
 
+@app.post("/api/v1/users")
+async def register(user: User):
+    db.append()(user)
+    return {"id": user.id}
+
 #TODO: Run in terminal "uvicorn main:app --reload"
 #24:53
