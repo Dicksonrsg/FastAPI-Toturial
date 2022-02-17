@@ -1,5 +1,5 @@
 from typing import List
-from uuid import uuid4
+from uuid import UUID, uuid4
 from fastapi import FastAPI
 
 from models import Gender, Role, User
@@ -38,5 +38,12 @@ async def register(user: User):
     db.append(user)
     return {"id": user.id}
 
+@app.delete("/api/v1/users/{user_id}")
+async def delete_user(user_id: UUID):
+    for user in db:
+        if user.id == user_id:
+            db.remove(user)
+            return 
+
 #TODO: Run in terminal "uvicorn main:app --reload"
-#24:53
+#38:45
