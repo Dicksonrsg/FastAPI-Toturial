@@ -28,3 +28,10 @@ db: List[User] = [
 @app.get("/")
 async def root():
     return {"Hello": "earth"}
+
+@app.get("/api/v1/users")
+async def fetch_users():
+    return db
+
+#TODO: Run in terminal "uvicorn main:app --reload"
+#24:53
