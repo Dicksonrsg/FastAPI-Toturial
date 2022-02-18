@@ -68,4 +68,4 @@ async def update_user(user_update: UserUpdate, user_id: UUID):
     )
     
 #TODO: Run in terminal "uvicorn main:app --reload"
-#52:13
+#TODO: Add user interface to display and alter the data
